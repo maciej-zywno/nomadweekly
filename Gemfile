@@ -7,7 +7,6 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder'
-gem 'bootswatch-rails'
 gem 'bootstrap-sass'
 gem 'haml-rails'
 gem 'high_voltage'
@@ -39,7 +38,6 @@ group :development do
   gem 'guard-rspec'
   gem 'html2haml'
   gem 'hub', :require=>nil
-  gem 'quiet_assets'
   gem 'rails_layout'
   gem 'rb-fchange', :require=>false
   gem 'rb-fsevent', :require=>false
