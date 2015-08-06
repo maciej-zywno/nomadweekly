@@ -1,4 +1,4 @@
 class Link < ActiveRecord::Base
-  has_one :issue
+  belongs_to :issue
   validates_presence_of :url
 end

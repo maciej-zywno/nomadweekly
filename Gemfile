@@ -14,8 +14,10 @@ gem 'pg'
 gem 'thin'
 gem 'simple_form'
 gem 'figaro'
+gem 'devise'
 gem 'decent_exposure'
 gem 'decent_decoration'
+gem 'activeadmin', github: 'activeadmin'
 
 group :development, :test do
   gem 'byebug'
