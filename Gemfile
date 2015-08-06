@@ -1,25 +1,38 @@
 source 'https://rubygems.org'
-ruby '2.1.5'
+
 gem 'rails', '4.2.3'
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.0'
+gem 'sass-rails'
+gem 'uglifier'
+gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
-gem 'jbuilder', '~> 2.0'
-group :development, :test do
-  gem 'byebug'
-  gem 'web-console', '~> 2.0'
-  gem 'spring'
-end
+gem 'jbuilder'
+gem 'bootswatch-rails'
 gem 'bootstrap-sass'
 gem 'haml-rails'
 gem 'high_voltage'
 gem 'pg'
-gem 'puma'
+gem 'thin'
 gem 'simple_form'
+gem 'figaro'
+gem 'decent_exposure'
+gem 'decent_decoration'
+
+group :development, :test do
+  gem 'byebug'
+  gem 'web-console'
+  gem 'spring'
+  gem 'tzinfo-data' #for windows
+end
+
 group :development do
   gem 'better_errors'
+  gem "meta_request"
+  gem "quiet_assets"
+  gem "pry-nav"
+  gem "pry-rails"
+  gem "pry-stack_explorer"
+  gem "pry-theme"
   gem 'binding_of_caller', :platforms=>[:mri_21]
   gem 'guard-bundler'
   gem 'guard-rails'
@@ -37,9 +50,11 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'rspec-rails'
+  gem 'shoulda-matchers'
 end
 group :production do
   gem 'rails_12factor'
+  gem 'puma'
 end
 group :test do
   gem 'capybara'
