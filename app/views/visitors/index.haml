@@ -1,0 +1,39 @@
+- content_for :title do
+  Home
+.jumbotron.vertical-center.text-center
+  .container
+    %br
+    %br
+    %br
+    %h1 Send us your email
+    %p.lead
+      To have very nice and important messages about trips.
+    .row
+      %br
+      .input-group.input-group-lg
+        %input.input-lg.form-control{:placeholder => "Your email", :type => "text"}
+        %span.input-group-btn
+          %a.btn.btn-success.btn-lg{:type => "button", :href=> "#{page_path('subscription_ok')}" } Subscribe
+      %p.subtext
+        %br
+        We promis - we never send spam!
+      %br
+.container
+  %h1.text-center Why you should subscribe us?
+  %hr
+  .row
+    .col-md-4
+      .text-center
+        %img.img-circle{:alt => "", :src => "http://lorempixel.com/128/128"}
+        %h3 Spods smaw
+      %p asdjasdjn afkasmdkma asfkmasfklasf lknoiqnwe rekwtmkrtm asdfklfmlksdfmklsdfsdf asdasd
+    .col-md-4
+      .text-center
+        %img.img-circle{:alt => "", :src => "http://lorempixel.com/128/128"}
+        %h3 One subscribe
+      %p A daskdas kfmei kgmodfg dfkgmdf dfkmgdfg sdkasdmas qwekqwmeqw k2m3k12 kmfakmsakfsmas asfkasmdlkmdaskl asdkmas 1n123j213asd asd asdd asd
+    .col-md-4
+      .text-center
+        %img.img-circle{:alt => "", :src => "http://lorempixel.com/128/128"}
+        %h3 Full of info
+      %p A daskdas kfmei kgmodfg dfkgmdf dfkmgdfg sdkasdmas qwekqwmeqw k2m3k12 kmfakmsakfsmas asfkasmdlkmdaskl

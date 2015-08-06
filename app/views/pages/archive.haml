@@ -1,0 +1,482 @@
+- content_for :title do
+  Archive
+.container
+  .page-header
+    %h1
+      Archive
+  .timeline
+    .line.text-muted
+    - 30.times do
+      %article.panel.panel-success
+        .panel-heading.icon
+          %i.glyphicon.glyphicon-envelope
+        .panel-heading
+          %h2.panel-title Issue #342 — July 30, 2015
+        .panel-body
+          ◾Use Any C Library From Ruby via Fiddle
+          %br
+          ◾rack-mini-profiler: The Secret Weapon of Ruby and Rails Speed
+          %br
+          ◾The Best of RailsConf 2015 in 8 Talks
+          %br
+          ◾Use Any C Library From Ruby via Fiddle
+          %br
+          ◾rack-mini-profiler: The Secret Weapon of Ruby and Rails Speed
+
+%br
+%br
+%br
+%br
+
+
+
+
+-#.container
+-#.col-sm-12.col-md-12.body
+-#  %h1 VS Code v0.5.0 (July 2015)
+-#  %p Thank you again for using Visual Studio Code! With our second update, we have lots to share with you, so much that we'll start with a quick summary for some of the key items:
+-#  %ul
+-#    %li Several updates to how we handle files, including file and folder filtering in the explorer, opening files via the command line at a specific line number, re-using an existing instance when you open multiple files, ability to control the size of the working files list.
+-#    %li Improved editor options that include support for removing trailing whitespace, improved search patterns with include/exclude filters.
+-#    %li
+-#      Significant JavaScript updates including ES6 support, jsconfig.json, improved
+-#      %code ///
+-#      reference management, additional workspace settings
+-#    %li Git enhancements, including an integrated credential prompt, multi-line commit message support and improved control over auto-fetch
+-#    %li User-defined snippets support, and more built in snippets for common languages, i.e., Dockerfiles, Python, and Rust.
+-#    %li Debugger enhancements including watch expressions, and improved Node.js breakpoint and source map support.
+-#    %li Other Stuff: Proxy support, auto-update enabled for Mac and Windows, notable bug fixes
+-#  %p
+-#    This release is available now - see
+-#    %a{:href => "/docs/howtoupdate"} how to update
+-#    to get the bits.
+-#  %p Read on to find out about the new features and learn how you can be more productive using VS Code.
+-#  %h2#_files Files
+-#  %p New file-based enhancements make it easier to link VS Code into your workflow with other tools, e.g. Unity, as well as improve the overall experience.
+-#  %blockquote
+-#    %p
+-#      %strong Note:
+-#      In the Editor Options section below, we show how you can hide derived resources in the Explorer, update the size of the Working Files area and exclude files from Search.
+-#  %p
+-#    %strong New command line options: -r and -g
+-#  %ul
+-#    %li
+-#      %p
+-#        The
+-#        %code -r
+-#        (or
+-#        = succeed ")" do
+-#          %code --reuse-window
+-#    %li
+-#      %p
+-#        The
+-#        %code -g
+-#        (or
+-#        = succeed ")" do
+-#          %code --goto
+-#        = succeed "The" do
+-#          %br/
+-#        %br/
+-#        %code code -g file1:<line>:<column?> file2:<line>:<column?> file3:<line>:<column?>
+-#        = succeed "The" do
+-#          %br/
+-#        %code column
+-#        value is optional. As shown in the example, you can open multiple files in a single VS Code instance using the desired line and column position. Note that
+-#        %code "-g"
+-#        switch is mandatory for this feature, since
+-#        %code :
+-#        is a valid character in file names on some operating systems.
+-#        %br/
+-#        Here's how to open a file to line 10, column 17:
+-#        %br/
+-#        %code code -g c:\mycode\HelloWorld.ts:10:17
+-#        %br/
+-#  %blockquote
+-#    %p
+-#      %strong Tip:
+-#      If you combine
+-#      %code -r
+-#      and
+-#      %code -g
+-#      you can configure an external tool to open files on a specific line and column into your running VS Code instance!  This was a popular request from the Unity user base.
+-#  %p
+-#    %strong Additional command line changes
+-#  %p When you pass multiple file paths to VS Code, they will all open in the same instance now. If some of the paths point to files that don't exist, VS Code will open new files as dirty.
+-#  %p When you pass in command line arguments for the path to a folder, and also a file name, VS Code will open both the folder and file in a single VS Code instance. Previously we would open two (or more) VS Code instances. The usage case is that you want to open a specific file in a folder while still opening the folder in the side bar.
+-#  %p Note that you can use absolute paths or relative paths for the folder argument and the file argument. If you use a relative path for the file argument, it is relative to where you start VS Code (not relative to the folder argument).
+-#  %p This example opens the current folder and a specific file, HelloWorld.ts, in that folder (the file will be created as dirty if it doesn't exist).
+-#  %p
+-#    %code code . HelloWorld.ts
+-#  %p
+-#    %strong Mac dock support
+-#  %p You can now open files and folders by dropping them to VS Code, even if it is not yet running. In addition, when you drop multiple files on the dock while VS Code is already running, VS Code will not start separate instances for each, but instead will try to open them in one instance.
+-#  %h2#_editor-options Editor options
+-#  %p
+-#    We added more configuration options for files, explorer and search. Access them from
+-#    %strong File
+-#    |
+-#    = succeed "." do
+-#      %strong Preferences
+-#  %p
+-#    %strong Patterns syntax
+-#  %p To support several of the new Search and Editor options, we've introduced a lightweight pattern matcher.  With a simplified set of patterns we support for specifying match patterns, you can use:
+-#  %ul
+-#    %li
+-#      %code *
+-#      to match one or more characters in a path segment
+-#    %li
+-#      %code ?
+-#      to match on one character in a path segment
+-#    %li
+-#      %code **
+-#      to match any number of path segments ,including none
+-#    %li
+-#      %code {}
+-#      to group conditions (e.g.
+-#      %code {**/*.html,**/*.txt}
+-#      matches all html and txt files)
+-#    %li
+-#      %code []
+-#      to declare a range of characters to match (e.g.,
+-#      %code example.[0-9]
+-#      to match on
+-#      = succeed "," do
+-#        %code example.0
+-#      = succeed "," do
+-#        %code example.1
+-#  %p
+-#    %strong Automatically trim trailing whitespace
+-#  %p
+-#    By popular demand, we added the
+-#    %code files.trimTrailingWhitespace
+-#    setting that allows you to trim trailing whitespace whenever you save.  This also works with autosave enabled.
+-#  %p
+-#    %strong Configure the size and behavior of Working Files
+-#  %p Two new settings give you more control over how files appear in the Working Files area - ideal for larger monitors!
+-#  %ul
+-#    %li
+-#      The
+-#      %code explorer.workingFiles.maxVisible
+-#      setting allows you to configure the number of visible working files before a scrollbar appears (the default is 9).
+-#    %li
+-#      The
+-#      %code explorer.workingFiles.dynamicHeight
+-#      setting lets you configure whether working files should dynamically adjust its height based on the number of elements inside. Set this to
+-#      %code false
+-#      if you don’t want the explorer jumping down when you add new working files. The default is
+-#      = succeed "." do
+-#        %code true
+-#  %p
+-#    %strong Hiding files and folders
+-#  %p
+-#    The
+-#    %code files.exclude
+-#    setting lets you define patterns to hide files and folders from several places in VS Code like the explorer and search. Once defined, files and folders matching any of the patterns will be hidden.
+-#  %blockquote
+-#    %p
+-#      %strong Tip:
+-#      This is really useful to hide derived resources files, like
+-#      %code \*.meta
+-#      in Unity, or
+-#      %code \*.js
+-#      in a TypeScript project. For Unity to exclude the
+-#      %code \*.cs.meta
+-#      files, the pattern to choose would be:
+-#      %code "**/*.cs.meta"
+-#  %p
+-#    %strong Hide derived resources
+-#  %p If you use a language that compiles to another file at the same location of the source file, like TypeScript does to JavaScript, you often don’t want to see the files in the explorer or include them in search results. With the new filtering capabilities, you can easily set an expression to hide those derived files:
+-#  %p
+-#    %code "**/*.js": { "when": "$(basename).ts"}
+-#  %p
+-#    Such a pattern will match on any JavaScript file (
+-#    %code> **/*.js
+-#    ), but only if a sibling file with the same name and extension,
+-#    %code *.ts
+-#    in this example, is present. The result being Explorer will no longer show derived resources for JavaScript if they are compiled to the same location. All you have to do is configure this in the
+-#    %code files.exclude
+-#    setting. While we've used JavaScript for this example, the same technique can be used for other transpiled languages, like Coffee Script or Less/Sass, too.
+-#  %p
+-#    Here's an example of how JavaScript files are hidden using the
+-#    %code "**/*.js": { "when": "$(basename).ts"}
+-#    expression.
+-#  %p
+-#    %img{:alt => "Hiding derived resources", :src => "/Content/images/HidingDerivedResources.png"}/
+-#  %p
+-#    %strong Exclude files and folders from search
+-#  %p
+-#    The
+-#    %code search.exclude
+-#    setting lets you configure additional files and folders to exclude from full text searches and from quick open, besides the
+-#    %code file.exclude
+-#    setting. This uses the patterns syntax (discussed below).
+-#  %blockquote
+-#    %p
+-#      %strong Note:
+-#      This is a
+-#      = succeed "," do
+-#        %strong breaking change
+-#      = succeed "," do
+-#        %code search.excludeFolders
+-#  %p
+-#    %strong Search leveraging patterns
+-#  %p To let you define powerful patterns for includes and excludes when you run searches, we added glob pattern support to the search box too. You can enable glob pattern search by clicking on the little icon in the include and exclude box.
+-#  %p Once you click on the pattern icon, you have access to the pattern reference.
+-#  %p
+-#    %img{:alt => "Search patterns", :src => "/Content/images/SearchPatterns.png"}/
+-#  %blockquote
+-#    %p
+-#      %strong Note:
+-#      You can still use wildcards without enabling glob pattern support. Things like
+-#      %code *.js
+-#      to search in all JavaScript files still work. Once you enable glob pattern syntax, keep in mind that you need to use
+-#      %code **/*.js
+-#      to search across all directories of your project!
+-#  %h2#_javascript JavaScript
+-#  %p We've made a lot of changes for JavaScript development in this release.
+-#  %p
+-#    %strong Breaking Changes
+-#  %p
+-#    A change like this comes with a few breaking changes: We deprecated some advanced configuration settings:
+-#    = succeed "," do
+-#      %code validate.scope
+-#    = succeed "," do
+-#      %code validate.baseUrl
+-#    = succeed "," do
+-#      %code validate.target
+-#    = succeed "," do
+-#      %code validate.module
+-#    = succeed "." do
+-#      %code validate.noLib
+-#    %code jsconfig.json
+-#    to offset these settings no longer being supported.
+-#  %p
+-#    %strong Support for ES6
+-#  %p A popular request since our launch has been support for ES6 (ECMAScript 6, the latest update of JavaScript targeting ratification in June 2015). You can expect VS Code to understand the new ES6 syntax elements and their semantics.
+-#  %p
+-#    Note that super-references in deriving object-literals is still on our plate; currently if you try this in VS Code you'll receive a faulty compile error, which you can suppress with the
+-#    %code _surpressSuperWithoutSuperTypeError: [true|false]
+-#    option.
+-#  %blockquote
+-#    %p
+-#      %strong Tip:
+-#      A good overview of the new ES6 features can be found here:
+-#      %a{:href => "https://github.com/lukehoban/es6features"} https://github.com/lukehoban/es6features
+-#  %p
+-#    %strong Projects - jsconfig.json
+-#  %p
+-#    You can create a JavaScript project by dropping in a
+-#    %code jsconfig.json
+-#    file. It's a subset of
+-#    = succeed "," do
+-#      %a{:href => "https://github.com/Microsoft/TypeScript/wiki/tsconfig.json"} tsconfig.json
+-#    %code tsconfig.json
+-#    if no "files" property is present in a
+-#    = succeed "," do
+-#      %code jsconfig.json
+-#  %p
+-#    %img{:alt => "jsonconfig.json", :src => "/Content/images/JsconfigJson.png"}/
+-#  %p
+-#    This means you don’t need to use
+-#    %code ///
+-#    references anymore. As the project defines the file set, VS Code just knows what files and symbols are part of your project. As an example, you can just drop a new
+-#    %code .d.ts
+-#    file into your project folder and VS Code will pick it up automatically.
+-#  %blockquote
+-#    %p
+-#      %strong Note:
+-#      In the Editor Options section, we discuss how you can hide derived files in the Explorer window, e.g.
+-#      %code *.js
+-#      files generated from
+-#      %code *.ts
+-#      sources.  In the Debugging section, we discuss support for JavaScript Source Maps and minified/uglified JavaScript debugging.
+-#  %p
+-#    %strong Shebang coloring
+-#  %p
+-#    We improved colorization for shebang
+-#    = succeed "," do
+-#      %code #!
+-#  %p
+-#    %img{:alt => "Shebang coloring", :src => "/Content/images/ShebangColoring.png"}/
+-#  %h2#_snippets Snippets
+-#  %p
+-#    VS Code launched with
+-#    = succeed "," do
+-#      %a{:href => "/docs/editingevolved#_snippets"} snippet support
+-#  %p
+-#    %strong User-defined snippets
+-#  %p
+-#    To add your own code snippets, use the newly added User Snippet action available by
+-#    %strong File
+-#    |
+-#    = succeed "." do
+-#      %strong Preferences
+-#  %blockquote
+-#    %p
+-#      %strong Tip:
+-#      Changes are picked up on save (there's no need to restart VS Code).
+-#  %p This is an example of a snippet file:
+-#  %pre
+-#    %code
+-#      :preserve
+-#        {
+-#            "Node Require" : {
+-#                "prefix": "require",
+-#                "body": [
+-#                    "var ${module} = require('${module}');",
+-#                    "$0"
+-#                ],
+-#                "description": "Node require statement"
+-#            }
+-#        }
+-#  %p Each property in the object represent a snippet.
+-#  %ul
+-#    %li
+-#      %code body
+-#      is what is inserted when the snippet is selected.
+-#    %li
+-#      %code description
+-#      is shown as additional information.
+-#    %li
+-#      %code prefix
+-#      is what IntelliSense will use as a label and to filter against.
+-#  %p The body format follows the TextMate template syntax (https://manual.macromates.com/en/snippets), with the following constructs supported:
+-#  %ul
+-#    %li plain text
+-#    %li
+-#      placeholders with identifiers
+-#      %code ${id: text}
+-#    %li
+-#      simple tab placeholders
+-#      %code $0, $1, …
+-#    %li
+-#      nested placeholders
+-#      %code ${id1: some text ${id2: nested text} }
+-#  %p We have also added some more snippets out of the box for Dockerfiles, Python, and Rust.
+-#  %h2#_git Git
+-#  %p We updated our Git support by delivering several of the most requested features.
+-#  %p
+-#    %strong Credential prompt
+-#  %p Many users have reported that the Git tools can be non-responsive.  This is typically a result of the Git action being blocked by an authentication prompt.  With this update, when Git requires credentials you will see a pop-up, prompting you to enter the required credentials.
+-#  %p
+-#    %img{:alt => "Credential prompt", :src => "/Content/images/CredentialPrompt.png"}/
+-#  %blockquote
+-#    %p
+-#      %strong Tip:
+-#      If you don’t want to always enter your credentials, consider using a
+-#      = succeed "." do
+-#        %a{:href => "https://help.github.com/articles/caching-your-github-password-in-git/"} credential helper
+-#  %p
+-#    %strong Multi-line commit
+-#  %p
+-#    Previously, commit messages in VS Code supported only a single line of text.  We now support multiple lines of text in your commit message. (Type
+-#    %span.keybinding Ctrl+Enter
+-#    to finish the commit message, or
+-#    %span.keybinding Enter
+-#    to add a new line to the message.)
+-#  %p
+-#    %img{:alt => "Multiline commit message", :src => "/Content/images/MultilineCommit.png"}/
+-#  %p
+-#    %strong Multiple file selection
+-#  %p Multiple selection is now enabled in the git viewlet, meaning you can stage/unstage or commit multiple files at the same time.
+-#  %p
+-#    %img{:alt => "Select multiple files", :src => "/Content/images/GitMultiSelect.gif"}/
+-#  %p
+-#    %strong Auto fetch control
+-#  %p There is now an action to enable/disable git auto fetch in the dropdown menu of the git viewlet. This is handy if you don’t have a credential helper and don’t want to get prompted for authentication all the time.
+-#  %h2#_debugging Debugging
+-#  %p Debugging is core to the workflow enabled by VS Code, and with this release we support several additional scenarios.
+-#  %p
+-#    %strong Improved launch.json generation
+-#  %p We are now consulting package.json for a main attribute when generating launch.json. The result is the generated launch.json is more precise.
+-#  %p
+-#    %strong Watch expressions
+-#  %p We added a new debug pane for watch expressions. You are able to add, rename or remove watch expressions from the debug viewlet. Based on the focused stack frame, watch expressions are reevaluated whenever the debug target has stopped. It is also possible to add an expression to watch using the editor context menu.
+-#  %p
+-#    %img{:alt => "Watch expressions", :src => "/Content/images/WatchExpressions.png"}/
+-#  %p
+-#    %strong Ability to edit during debug
+-#  %p
+-#    The workbench is no longer in read-only mode when debugging.
+-#    However, VS Code does not yet support 'hot code replacement', so edited code is not automatically picked up by the debugger
+-#    but a new 'Restart Session' action helps to improve the experience.
+-#  %p
+-#    %strong Improved Node breakpoint handling
+-#  %p Node does not parse source files completely on load, rather it delays parsing of closures (e.g. callbacks) until their code is first hit. As a consequence, breakpoints set on callbacks are sometimes not registered for the line requested but instead  register for the next possible line in already-parsed code. To avoid confusion, we now show breakpoints at the location where node thinks the breakpoint is. In the breakpoint view, these breakpoints are shown with this notation:
+-#  %p
+-#    %em request line
+-#    →
+-#    %em actual line
+-#  %p Here's an example:
+-#  %p
+-#    %img{:alt => "Node breakpoints", :src => "/Content/images/NodeBreakpoints.png"}/
+-#  %p This breakpoint validation occurs when a session starts and the breakpoints are registered with node, or when a session is already running and a new breakpoint is set. In this case, the breakpoint may "jump" to a different location.After node.js has parsed all the code (e.g,. by running through it), breakpoints can be easily re-applied to the requested locations with the Reapply button in the breakpoint view's header. This should make the breakpoints "jump back" to the requested location.
+-#  %p
+-#    %strong Activate / deactivate breakpoints
+-#  %p You can now toggle the active breakpoints.
+-#  %p
+-#    %img{:alt => "Toggle active breakpoints", :src => "/Content/images/ToggleActiveBPs.png"}/
+-#  %p
+-#    %strong JavaScript source maps
+-#  %p If generated (transpiled) JavaScript files do not live next to their source, you can help the VS Code debugger locate them by specifying the outDir directory in the launch configuration. Whenever you set a breakpoint in the original source, VS Code tries to find the generated source, and the associated source map, in the outDir directory.
+-#  %p In-lined source maps (a source map where the content is stored as a data url instead of a separate file) are now supported, although in-lined source is not yet supported.
+-#  %p
+-#    %strong Minified debugging
+-#  %p Debugging minified/uglified JavaScript is now supported.
+-#  %h2#_other-stuff Other stuff
+-#  %p
+-#    %strong Output toggling
+-#  %p A new action was added that allows to toggle the output window. When output is not showing, it will just show output. But when output is showing, it will restore the previous editor you'd been using. This allows to quickly check the output and then quickly return to the work you did before. The action replaces the previous "Show Output" action, so by default the keybinding for output toggling is Ctrl+Shift+U (Cmd+Shift+U on Mac).
+-#  %p
+-#    %strong Auto-update enabled for OS X and Windows
+-#  %p
+-#    With this update, future updates will be automatic for OS X and Windows users (we don't support auto-updates for Linux). If you want to opt out of auto-updates, see instructions
+-#    = succeed "." do
+-#      %a{:href => "http://go.microsoft.com/fwlink/?LinkID=616397"} here
+-#  %p
+-#    %strong Proxy Support
+-#  %p Http requests for package/project/bower.json IntelliSense as well as fetching schemas and for Send-a-Smile now can go through a proxy server.
+-#  %p To configure a proxy either:
+-#  %ul
+-#    %li
+-#      Set the
+-#      %code http_proxy
+-#      and the
+-#      %code https_proxy
+-#      environment variables before starting VS Code.
+-#    %li
+-#      Set the
+-#      %code http.proxy
+-#      user setting.
+-#  %blockquote
+-#    %p
+-#      %strong Note:
+-#      VS Code supports http and https proxies, but not SOCKS proxies.
+-#  %p
+-#    %strong Notable Bug Fixes
+-#  %ul
+-#    %li
+-#      %a{:href => "https://code.visualstudio.com/issues/Detail/16480"}> 16480
+-#      \: Git push/pull not working
+-#    %li
+-#      %a{:href => "https://code.visualstudio.com/issues/Detail/16782"}> 16782
+-#      \: Fonts Are Blurry
+-#    %li
+-#      %a{:href => "https://code.visualstudio.com/issues/Detail/17223"}> 17223
+-#      \: SourceMap debugging doesn't work with inlined source map
+-#    %li
+-#      %a{:href => "https://code.visualstudio.com/issues/Detail/17079"}> 17079
+-#      \: OS X Poor Scrolling in Explore Sidebar
+-#  %p
+-#    For a list of currently known issues, see our
+-#    = succeed "." do
+-#      %a{:href => "/docs/faq"} FAQ
+-#    = succeed "." do
+-#      %a{:href => "/issues"} here
+-#  .feedback
+-#    .widget{"data-reactid" => ".0"}
+-#      %form{"data-reactid" => ".0.0"}
+-#        %h3{"data-reactid" => ".0.0.0"} Was this documentation helpful?
+-#        .buttons{"data-reactid" => ".0.0.1"}
+-#          %button{"data-reactid" => ".0.0.1.0", :value => "1"} Yes
+-#          %button{"data-reactid" => ".0.0.1.1", :value => "0"} No
