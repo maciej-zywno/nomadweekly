@@ -6,12 +6,12 @@
       Archive
   .timeline
     .line.text-muted
-    - 30.times do
+    - issues.each do |issue|
       %article.panel.panel-success
         .panel-heading.icon
           %i.glyphicon.glyphicon-envelope
         .panel-heading
-          %h2.panel-title Issue #342 — July 30, 2015
+          %h2.panel-title Issue ##{issue.id} — #{issue.created_at}
         .panel-body
           ◾Use Any C Library From Ruby via Fiddle
           %br
@@ -22,7 +22,9 @@
           ◾Use Any C Library From Ruby via Fiddle
           %br
           ◾rack-mini-profiler: The Secret Weapon of Ruby and Rails Speed
-
+        .panel-footer
+          By
+          = issue.author
 %br
 %br
 %br

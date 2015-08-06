@@ -6,5 +6,5 @@ class ApplicationController < ActionController::Base
   decent_configuration do
     strategy DecentExposure::StrongParametersStrategy
   end
-
+  expose(:issues) { Issue.order('created_at DESC') }
 end
