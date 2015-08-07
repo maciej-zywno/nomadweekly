@@ -1,4 +1,3 @@
 ActiveAdmin.register Link do
-  permit_params :url, :issue_id
-
+  permit_params :issue_id, :url, :author, :description
 end

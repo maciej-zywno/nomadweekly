@@ -1,4 +1,3 @@
 ActiveAdmin.register Issue do
-  permit_params :title, :author, :description
-
+  permit_params :description, :title
 end
