@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   before_action :setup_mcapi
 
   def setup_mcapi
-     @mc = Mailchimp::API.new(Figaro.env.mailchimp_api_key + '-us8')
+     @mc = Mailchimp::API.new(Figaro.env.mailchimp_api_key)
   end
 
 
