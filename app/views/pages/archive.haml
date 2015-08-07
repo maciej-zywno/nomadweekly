@@ -15,13 +15,14 @@
         .panel-body
           = issue.description
           %br
-          %ol
-          - issue.link.each do |link|
-            %li
-              %a{:href => "http://#{link.url}", :target => "_blank"}
-                = link.url
-        .panel-footer
-          By
-          = issue.author
-%br
+          %p
+            %ol
+            - issue.link.each do |link|
+              %li
+                %a{:href => "http://#{link.url}", :target => "_blank"}
+                  = link.url
+                by
+                = link.author
+                %br
+                = link.description
 %br
