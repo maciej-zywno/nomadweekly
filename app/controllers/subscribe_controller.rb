@@ -4,7 +4,7 @@ class SubscribeController < ApplicationController
     email = params[:email]
 
     begin
-      @mc.lists.subscribe(ENV['MAILCHIMP_LIST_ID'], {'email' => email})
+      @mc.lists.subscribe(Figaro.env.mailchimp_list_id, {'email' => email})
       flash[:success] = "#{email} subscribed successfully"
     rescue Mailchimp::ListAlreadySubscribedError
       flash[:error] = "#{email} is already subscribed to the list"
