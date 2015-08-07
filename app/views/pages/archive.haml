@@ -11,21 +11,17 @@
         .panel-heading.icon
           %i.glyphicon.glyphicon-envelope
         .panel-heading
-          %h2.panel-title Issue ##{issue.id} — #{issue.created_at}
+          %h2.panel-title Issue ##{issue.id} — #{issue.title} — #{issue.created_at.strftime("%d %b. %Y")}
         .panel-body
-          ◾Use Any C Library From Ruby via Fiddle
+          = issue.description
           %br
-          ◾rack-mini-profiler: The Secret Weapon of Ruby and Rails Speed
-          %br
-          ◾The Best of RailsConf 2015 in 8 Talks
-          %br
-          ◾Use Any C Library From Ruby via Fiddle
-          %br
-          ◾rack-mini-profiler: The Secret Weapon of Ruby and Rails Speed
+          %ol
+          - issue.link.each do |link|
+            %li
+              %a{:href => "http://#{link.url}", :target => "_blank"}
+                = link.url
         .panel-footer
           By
           = issue.author
-%br
-%br
 %br
 %br
