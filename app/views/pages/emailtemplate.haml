@@ -1,1 +1,210 @@
-%h1 email template
+!!! Strict
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    :css
+      /* Client-specific Styles */
+      #outlook a {padding:0;} /* Force Outlook to provide a "view in browser" menu link. */
+      body{width:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; margin:0; padding:0;}
+      /* Prevent Webkit and Windows Mobile platforms from changing default font sizes, while not breaking desktop design. */
+      .ExternalClass {width:100%;} /* Force Hotmail to display emails at full width */
+      .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;} /* Force Hotmail to display normal line spacing. */
+      #backgroundTable {margin:0; padding:0; width:100% !important; line-height: 100% !important;}
+      img {outline:none; text-decoration:none;border:none; -ms-interpolation-mode: bicubic;}
+      a img {border:none;}
+      .image_fix {display:block;}
+      p {margin: 0px 0px !important;}
+      table td {border-collapse: collapse;}
+      table { border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; }
+      a {color: #33b9ff;text-decoration: none;text-decoration:none!important;}
+      /*STYLES*/
+      table[class=full] { width: 100%; clear: both; }
+      /*IPAD STYLES*/
+      @media only screen and (max-width: 640px) {
+      a[href^="tel"], a[href^="sms"] {
+      text-decoration: none;
+      color: #0a8cce; /* or whatever your want */
+      pointer-events: none;
+      cursor: default;
+      }
+      .mobile_link a[href^="tel"], .mobile_link a[href^="sms"] {
+      text-decoration: default;
+      color: #0a8cce !important;
+      pointer-events: auto;
+      cursor: default;
+      }
+      table[class=devicewidth] {width: 440px!important;text-align:center!important;}
+      table[class=devicewidthmob] {width: 420px!important;text-align:center!important;}
+      table[class=devicewidthinner] {width: 420px!important;text-align:center!important;}
+      img[class=banner] {width: 440px!important;height:157px!important;}
+      img[class=col2img] {width: 440px!important;height:330px!important;}
+      table[class="cols3inner"] {width: 100px!important;}
+      table[class="col3img"] {width: 131px!important;}
+      img[class="col3img"] {width: 131px!important;height: 82px!important;}
+      table[class='removeMobile']{width:10px!important;}
+      img[class="blog"] {width: 420px!important;height: 162px!important;}
+      }
+
+      /*IPHONE STYLES*/
+      @media only screen and (max-width: 480px) {
+      a[href^="tel"], a[href^="sms"] {
+      text-decoration: none;
+      color: #0a8cce; /* or whatever your want */
+      pointer-events: none;
+      cursor: default;
+      }
+      .mobile_link a[href^="tel"], .mobile_link a[href^="sms"] {
+      text-decoration: default;
+      color: #0a8cce !important;
+      pointer-events: auto;
+      cursor: default;
+      }
+      table[class=devicewidth] {width: 280px!important;text-align:center!important;}
+      table[class=devicewidthmob] {width: 260px!important;text-align:center!important;}
+      table[class=devicewidthinner] {width: 260px!important;text-align:center!important;}
+      img[class=banner] {width: 280px!important;height:100px!important;}
+      img[class=col2img] {width: 280px!important;height:210px!important;}
+      table[class="cols3inner"] {width: 260px!important;}
+      img[class="col3img"] {width: 280px!important;height: 175px!important;}
+      table[class="col3img"] {width: 280px!important;}
+      img[class="blog"] {width: 260px!important;height: 100px!important;}
+      td[class="padding-top-right15"]{padding:15px 15px 0 0 !important;}
+      td[class="padding-right15"]{padding-right:15px !important;}
+      }
+  %body
+    - issues.each do |issue|
+      / Start of preheader
+      %table#backgroundTable{:bgcolor => "#3a539b", :border => "0", :cellpadding => "0", :cellspacing => "0", "st-sortable" => "preheader", :width => "100%"}
+        %tbody
+          %tr
+            %td
+              %table.devicewidth{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0", :width => "560"}
+                %tbody
+                  %tr
+                    %td{:width => "100%"}
+                      %table.devicewidth{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0", :width => "560"}
+                        %tbody
+                          / Spacing
+                          %tr
+                            %td{:height => "10", :width => "100%"}
+                          / Spacing
+                          %tr
+                            %td{:align => "center", "st-content" => "viewonline", :style => "font-family: Helvetica, arial, sans-serif; font-size: 10px;color: #303030;text-align:center;", :valign => "middle"}
+                              If you can’t read this email.Please
+                              %a{:href => "#{page_path('archive')}", :style => "text-decoration: none; color: #7a6e67"} view online
+                          / Spacing
+                          %tr
+                            %td{:height => "10", :width => "100%"}
+      %table#backgroundTable{:bgcolor => "#3a539b", :border => "0", :cellpadding => "0", :cellspacing => "0", "st-sortable" => "banner", :width => "100%"}
+        %tbody
+          %tr
+            %td
+              %table.devicewidth{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0", :width => "560"}
+                %tbody
+                  %tr
+                    %td{:width => "100%"}
+                      %table.devicewidth{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0", :width => "560"}
+                        %tbody
+                          %tr
+                            / start of image
+                            %td{:align => "center", :bgcolor => "3a539b", "st-image" => "banner-image"}
+                              %table.full{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;", :width => "540"}
+                                %tbody
+                                  %tr
+                                    %td{:height => "30", :width => "100%"}
+                                  / START OF HEADING
+                                  %tr
+                                    %td.center{:align => "center", :style => "margin: 0; padding: 0 15px 15px 15px; margin:0; text-transform: uppercase; font-family: Helvetica, Arial; font-size: 23px; color: #ffffff; line-height: 34px; mso-line-height-rule: exactly;"}
+                                      %span
+                                        =issue.title
+                                  / END OF HEADING
+                                  / START OF TEXT
+                                  %tr
+                                    %td.center{:align => "center", :style => "margin: 0; padding:0 30px 0 30px; margin:0; font-size:14px ; color:#ffffff; font-family: Helvetica, Arial, sans-serif; line-height: 20px;mso-line-height-rule: exactly;"}
+                                      %span
+                                        =issue.description
+                                  / END OF TEXT
+                                  / START OF BUTTON
+                                  %tr
+                                    %td{:height => "30", :width => "100%"}
+      / Spacing
+      / end of 3-columns
+      / leftimage
+      - issue.link.each do |link|
+        %table#backgroundTable{:bgcolor => "#d8d8d8", :border => "0", :cellpadding => "0", :cellspacing => "0", "st-sortable" => "left-image", :width => "100%"}
+          %tbody
+            %tr
+              %td
+                %table.devicewidth{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0", :width => "560"}
+                  %tbody
+                    %tr
+                      %td{:width => "100%"}
+                        %table.devicewidth{:align => "center", :bgcolor => "#ffffff", :border => "0", :cellpadding => "0", :cellspacing => "0", :width => "560"}
+                          %tbody
+                            / Spacing
+                            %tr
+                              %td{:height => "20", :style => "font-size:1px; line-height:1px; mso-line-height-rule: exactly;"}
+                            / Spacing
+                            %tr
+                              %td
+                                %table.devicewidth{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0", :width => "520"}
+                                  %tbody
+                                    %tr
+                                      %td
+                                        / Start of left column
+                                        / end of left column
+                                        / spacing for mobile devices
+                                        %table.devicewidthmob{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "100%"}
+                                          %tbody
+                                            %tr
+                                              %td{:style => "font-family: Helvetica, arial, sans-serif; font-size: 18px; color: #2d2a26; text-align:left; line-height: 24px;"}
+                                                = link.url
+                                            / end of title
+                                            / Spacing
+                                            %tr
+                                              %td{:height => "15", :style => "font-size:1px; line-height:1px; mso-line-height-rule: exactly;", :width => "100%"}
+                                            / /Spacing
+                                            / content
+                                            %tr
+                                              %td{:style => "font-family: Helvetica, arial, sans-serif; font-size: 14px; color: #7a6e67; text-align:left; line-height: 24px;"}
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                                tempor incididunt ut labore et dolore magna
+                            / end of content
+                            / end of right column
+                            / Spacing
+                            %tr
+                              %td{:height => "20", :style => "font-size:1px; line-height:1px; mso-line-height-rule: exactly;"}
+                            / Spacing
+                            / Spacing
+                            %tr
+                              %table{:cellpadding => "0", :cellspacing => "0"}
+                                %tbody
+                                  %tr
+                                    %td{:bgcolor => "#3a539b", :width => "90"}
+                                    %td{:bgcolor => "#EEE", :height => "2", :style => "font-size:1px; line-height:1px; mso-line-height-rule: exactly;"}
+      / Spacing
+      / End of footer
+      / Start of postfooter
+      %table#backgroundTable{:bgcolor => "#dbdbdb", :border => "0", :cellpadding => "0", :cellspacing => "0", "st-sortable" => "preheader", :width => "100%"}
+        %tbody
+          %tr
+            %td
+              %table.devicewidth{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0", :width => "560"}
+                %tbody
+                  %tr
+                    %td{:width => "100%"}
+                      %table.devicewidth{:align => "center", :bgcolor => "#ffffff", :border => "0", :cellpadding => "0", :cellspacing => "0", :width => "560"}
+                        %tbody
+                          / Spacing
+                          %tr
+                            %td{:height => "10", :width => "100%"}
+                          / Spacing
+                          %tr
+                            %td{:align => "center", "st-content" => "viewonline", :style => "font-family: Helvetica, arial, sans-serif; font-size: 13px;color: #7a6e67;text-align:center;", :valign => "middle"}
+                              If you wish not to receive further updates. Please
+                              %a{:href => "#", :style => "text-decoration: none; color: #303030"} Unsubscribe
+                          / Spacing
+                          %tr
+                            %td{:height => "10", :width => "100%"}
+                              / Spacing
+                              / End of postfooter
+
