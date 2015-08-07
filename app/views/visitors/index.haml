@@ -3,17 +3,20 @@
 .jumbotron.vertical-center.text-center
   .container
     %br
-    %br
-    %br
     %h1 Nomad Weekly
     %p.lead
       A free e-mail round-up delivered to your inbox every Thursday.
     .row
       %br
-      .input-group.input-group-lg
-        %input.input-lg.form-control{:placeholder => "Your email", :type => "text"}
-        %span.input-group-btn
-          %a.btn.btn-success.btn-lg{:type => "button", :href=> "#{page_path('subscription_ok')}" } Subscribe
+      .container
+        .row
+          .col-md-4
+          .col-md-4
+            .input-group.input-group-lg
+              %input.input-lg.form-control{:placeholder => "Your email", :type => "text"}
+              %span.input-group-btn
+                %a.btn.btn-success.btn-lg{:type => "button"} Subscribe
+          .col-md-4
       %p.subtext
         %br
         One email per week. No spam policy.
