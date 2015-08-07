@@ -17,6 +17,7 @@ gem 'devise'
 gem 'decent_exposure'
 gem 'decent_decoration'
 gem 'activeadmin', github: 'activeadmin'
+gem 'mailchimp-api'
 
 group :development, :test do
   gem 'byebug'
