@@ -11,7 +11,7 @@
         .panel-heading.icon
           %i.glyphicon.glyphicon-envelope
         .panel-heading
-          %h2.panel-title Issue ##{issue.id} — #{issue.title} — #{issue.created_at.strftime("%d %b. %Y")}
+          %h2.panel-title Issue ##{issue.number} — #{issue.title} — #{issue.scheduled_at.strftime("%d %b. %Y")}
         .panel-body
           = issue.description
           %br
