@@ -1,25 +1,26 @@
 class SubscribeController < ApplicationController
 
   def create
-    email = params[:email]
-
     begin
-      @mc.lists.subscribe(Figaro.env.mailchimp_list_id, {'email' => email})
-      flash[:success] = "#{email} subscribed successfully"
+      mailchimp_subscribe(params[:email])
+
+      flash[:success] = "#{params[:email]} subscribed successfully"
     rescue Mailchimp::ListAlreadySubscribedError
-      flash[:error] = "#{email} is already subscribed to the list"
+      flash[:error] = "#{params[:email]} is already subscribed to the list"
     rescue Mailchimp::ListDoesNotExistError
       flash[:error] = "The list could not be found"
-      redirect_to root_path
-      return
     rescue Mailchimp::Error => ex
-      if ex.message
-        flash[:error] = ex.message
-      else
-        flash[:error] = "An unknown error occurred"
-      end
+      flash[:error] = ex.message ? ex.message : "An unknown error occurred"
     end
+
     redirect_to root_path
   end
+
+  private
+
+    def mailchimp_subscribe(email)
+      mc = Mailchimp::API.new(Figaro.env.mailchimp_api_key)
+      mc.lists.subscribe(Figaro.env.mailchimp_list_id, {'email' => email})
+    end
 
 end
