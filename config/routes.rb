@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   root to: 'visitors#index'
 
-  resources :subscribe
+  resources :subscribes
 end
