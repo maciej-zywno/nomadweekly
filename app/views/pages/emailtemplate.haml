@@ -115,7 +115,7 @@
                                   %tr
                                     %td.center{:align => "center", :style => "margin: 0; padding: 0 15px 15px 15px; margin:0; text-transform: uppercase; font-family: Helvetica, Arial; font-size: 23px; color: #ffffff; line-height: 34px; mso-line-height-rule: exactly;"}
                                       %span
-                                        =issue.title
+                                        #{issue.title} ##{issue.number}
                                   / END OF HEADING
                                   / START OF TEXT
                                   %tr
@@ -160,7 +160,8 @@
                                                 %a{:href => "#{link.url}"}
                                                   = link.url
                                                 by
-                                                = link.author
+                                                %a{:href => "#{link.author_url}"}
+                                                  = link.author
                                             / end of title
                                             / Spacing
                                             %tr
