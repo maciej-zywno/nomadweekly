@@ -18,6 +18,7 @@ gem 'decent_exposure'
 gem 'decent_decoration'
 gem 'activeadmin', github: 'activeadmin'
 gem 'mailchimp-api'
+gem 'toastr-rails'
 
 group :development, :test do
   gem 'byebug'
