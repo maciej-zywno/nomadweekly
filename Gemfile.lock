@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/activeadmin/activeadmin.git
-  revision: 3448d71278de0bd0b6813999f4b338ffc4c51bb9
+  revision: 4926eef04fd416df15267461de6c87c6ee5cba64
   specs:
     activeadmin (1.0.0.pre1)
       arbre (~> 1.0, >= 1.0.2)
@@ -85,6 +85,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    certified (1.0.0)
     childprocess (0.5.6)
       ffi (~> 1.0, >= 1.0.11)
     coderay (1.1.0)
@@ -111,7 +112,7 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
     erubis (2.7.0)
-    eventmachine (1.0.7)
+    eventmachine (1.0.8)
     excon (0.45.4)
     execjs (2.5.2)
     factory_girl (4.5.0)
@@ -210,7 +211,7 @@ GEM
     method_source (0.8.2)
     mime-types (2.6.1)
     mini_portile (0.6.2)
-    minitest (5.7.0)
+    minitest (5.8.0)
     multi_json (1.11.2)
     nenv (0.2.0)
     nokogiri (1.6.6.2)
@@ -244,6 +245,7 @@ GEM
     pry-theme (1.1.3)
       coderay (~> 1.1)
       json (~> 1.8)
+    puma (2.12.3)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.6.4)
@@ -317,7 +319,7 @@ GEM
       rspec-mocks (~> 3.3.0)
       rspec-support (~> 3.3.0)
     rspec-support (3.3.0)
-    ruby_parser (3.7.0)
+    ruby_parser (3.7.1)
       sexp_processor (~> 4.1)
     rubyzip (1.1.7)
     sass (3.4.16)
@@ -386,6 +388,7 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   capybara
+  certified
   coffee-rails
   database_cleaner
   decent_decoration
@@ -411,6 +414,7 @@ DEPENDENCIES
   pry-rails
   pry-stack_explorer
   pry-theme
+  puma
   quiet_assets
   rails (= 4.2.3)
   rails_12factor

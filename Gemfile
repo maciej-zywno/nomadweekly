@@ -24,6 +24,7 @@ group :development, :test do
   gem 'web-console'
   gem 'spring'
   gem 'tzinfo-data' #for windows
+  gem 'certified'
 end
 
 group :development do

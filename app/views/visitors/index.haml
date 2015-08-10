@@ -12,9 +12,12 @@
         .row
           .col-md-4
           .col-md-4
-            = simple_form_for subscribe_path do |f|
-              = f.input :email
-              = f.button :submit
+            -#= link_to "sub", subscribes_path(:email => "kasdm@o2.pl"), method: :post
+            = simple_form_for subscribes_path, url: "subscribes", method: :post do |f|
+              .input-group.input-group-lg
+                = f.input :email, placeholder: 'Your email', class: 'form form-control input-lg', label: false
+                %span.input-group-btn
+                  = f.button :submit, "Subscribe", class: 'btn-success btn-lg'
             -#.input-group.input-group-lg
             -#  %input.input-lg.form-control{:placeholder => "Your email", :type => "text"}
             -#  %span.input-group-btn
