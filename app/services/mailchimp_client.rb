@@ -7,7 +7,6 @@ class MailchimpClient
     begin
       _subscribe(email)
 
-      [:success, "#{email} subscribed successfully"]
     rescue Mailchimp::ListAlreadySubscribedError
       [:error, "#{email} is already subscribed to the list"]
     rescue Mailchimp::ListDoesNotExistError
