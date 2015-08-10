@@ -12,10 +12,11 @@
         .row
           .col-md-4
           .col-md-4
-            .input-group.input-group-lg
-              %input.input-lg.form-control{:placeholder => "Your email", :type => "text"}
-              %span.input-group-btn
-                %a.btn.btn-success.btn-lg{:type => "button"} Subscribe
+            = simple_form_for :subscribe, url: "subscribes", method: :post do |f|
+              .input-group
+                = f.input :email, placeholder: 'Your email', label: false, required: true, class: 'form-control'
+                %span.input-group-btn
+                  = f.button :submit, "Subscribe", class: 'btn btn-success'
           .col-md-4
       %p.subtext
         %br
