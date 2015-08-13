@@ -1,3 +1,5 @@
+require 'mailchimp'
+
 class SubscribesController < ApplicationController
 
   def create
