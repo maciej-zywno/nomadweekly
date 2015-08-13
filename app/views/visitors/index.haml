@@ -1,6 +1,6 @@
 - content_for :title do
   NomadWeekly
-.jumbotron.vertical-center.text-center
+.jumbotron.vertical-center.text-center{style1: 'padding-top: 0;padding-bottom: 0;'}
   .container
     %br
     %h1 Nomad Weekly
@@ -29,19 +29,20 @@
 .container
   %h1.text-center What digital nomads say
   %hr
-  .row
+  .row{style: 'margin-bottom: 3em;'}
     .col-md-4
       .text-center
-        %img.img-circle{:alt => "", :src => "http://lorempixel.com/128/128"}
-        %h3 Maciek Zywno
-      %p The best thing since sliced bread. Disclaimer: I'm NomadWeekly curator ;)
+        %img.img-circle{:alt => "", width: '128px', height: '128px', :src => "#{asset_path('obama.jpg')}"}
+        %h3 Barrack O., Kailua Bay, Hawaii
+        %p The best thing since sliced bread. Saves a ton of time every week.
     .col-md-4
       .text-center
-        %img.img-circle{:alt => "", :src => "http://lorempixel.com/128/128"}
+        %img.img-circle{:alt => "", width: '128px', height: '128px', :src => "#{asset_path('putin.jpg')}"}
+        %h3 Vladimir P., Russia
+        %p Fresh news on my desk every Thursday while I enjoy nature.
+    .col-md-4
+      .text-center
+        %img.img-circle{:alt => "", width: '128px', height: '128px', :src => "#{asset_path('superman.jpeg')}"}
         %h3 You
-      %p I want to hear from you (make it an email link)
-    .col-md-4
-      .text-center
-        %img.img-circle{:alt => "", :src => "http://lorempixel.com/128/128"}
-        %h3 ...
-      %p ...
+        %p
+          %a{href: 'mailto:hello@nomadweekly.com?Subject=This%20is%20awesome!', target: '_top'} Tell me what you think!
